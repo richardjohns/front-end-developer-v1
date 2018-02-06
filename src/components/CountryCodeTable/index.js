@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { map } from 'ramda'
-import { Row, Table } from 'react-bootstrap'
 
 class CountryCodeTable extends Component {
   componentDidMount () {
@@ -22,8 +21,8 @@ class CountryCodeTable extends Component {
   }
 
   getTable (data) {
-    return data ? (
-      <Table striped responsive>
+    return data
+      ? <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -32,19 +31,15 @@ class CountryCodeTable extends Component {
           </tr>
         </thead>
         <tbody>{this.getRows(this.props.externalData)}</tbody>
-      </Table>
-    ) : (
-      <p>Loading data</p>
-    )
+      </table>
+      : <p>Loading data</p>
   }
 
   render () {
     return (
       <div>
-        <Row key='header-row'>
-          <h1>Country Calling Codes</h1>
-        </Row>
-        <Row key='body-row'>{this.getTable(this.props.externalData)}</Row>,
+        <h1>Country Calling Codes</h1>
+        {this.getTable(this.props.externalData)}
       </div>
     )
   }

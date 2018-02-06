@@ -1,6 +1,5 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { Table } from 'react-bootstrap'
 
 import CountryCodeTable from './'
 
@@ -20,12 +19,9 @@ describe('containers', function () {
       const code = { name: 'name', code: 'code', dialCode: 'dialCode' }
       const initialiseApp = jest.fn()
       const wrapper = shallow(
-        <CountryCodeTable
-          initialiseApp={initialiseApp}
-          externalData={[code]}
-        />
+        <CountryCodeTable initialiseApp={initialiseApp} externalData={[code]} />
       )
-      const tds = wrapper.find(Table).find('td')
+      const tds = wrapper.find('table').find('td')
 
       expect(tds.at(0).text()).toBe(code.name)
       expect(tds.at(1).text()).toBe(code.code)

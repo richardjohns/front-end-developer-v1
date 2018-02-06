@@ -1,12 +1,16 @@
 import React from 'react'
-import { Grid } from 'react-bootstrap'
 
 import { CountryCodeTable } from '../../containers'
 
+const style = {
+  margin: 0,
+  padding: '1rem'
+}
+
 const App = () => (
-  <Grid>
+  <div style={style}>
     <CountryCodeTable />
-  </Grid>
+  </div>
 )
 
 export default App
